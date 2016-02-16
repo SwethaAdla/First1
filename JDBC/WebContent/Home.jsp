@@ -19,6 +19,7 @@ String pwd = "Swetha@90";
 Connection con = DriverManager.getConnection(hostadd+database, uId, pwd);
 Statement s=con.createStatement();
 ResultSet r= s.executeQuery("SELECT * FROM ssdiassignment");
+try{
 while(r.next()){
 %>
 <tr bgcolor="#CCEEFF">
@@ -28,6 +29,10 @@ while(r.next()){
 <%
 }
 con.close();
+}
+catch(Exception e){
+	e.printStackTrace();
+    con.close();	
+}
 %>
 </table>
-
